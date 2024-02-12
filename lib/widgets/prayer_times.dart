@@ -42,26 +42,4 @@ class PrayerTimes {
     return prayerTimes;
   }
 
-  static List<PrayerTime> getAzkarTimes() {
-    final now = DateTime.now();
-    final azkarTimes = [
-      PrayerTime(
-          title: 'أذكار الصباح',
-          content: 'وقت قراءة الأذكار',
-          time: DateTime(now.year, now.month, now.day, 7,0),
-          icon: 'assets/images/rising-sun.png'),
-      PrayerTime(
-          title: 'أذكار المساء',
-          content: 'وقت قراءة الأذكار',
-          time: DateTime(now.year, now.month, now.day, 18,0),
-          icon: 'assets/images/night.png'),
-      PrayerTime(
-          title: 'أذكار النوم',
-          content: 'وقت قراءة الأذكار',
-          time: DateTime(now.year, now.month, now.day, 22,0),
-          icon: 'assets/images/night.png'),
-    ];
-    //getAzkarTimes();
-    return azkarTimes;
-  }
 }

@@ -88,7 +88,7 @@ class _SebhaPageState extends State<SebhaPage> {
           actions: [
             IconButton(
               onPressed: resetCounter,
-              icon: Icon(Icons.refresh),
+              icon: const Icon(Icons.refresh),
             )
           ],
         ),
@@ -104,7 +104,7 @@ class _SebhaPageState extends State<SebhaPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: Text(
                       '$totalCounter',
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 70,
                           color: Color(0xff87854f)),
@@ -116,7 +116,7 @@ class _SebhaPageState extends State<SebhaPage> {
                 flex: 1,
                 child: GridView.builder(
                   itemCount: tasbehList.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 1 / .45,
                   ),
@@ -130,8 +130,8 @@ class _SebhaPageState extends State<SebhaPage> {
                         incrementCounter();
                       },
                       child: Container(
-                        margin: EdgeInsets.all(4),
-                        padding: EdgeInsets.all(16),
+                        margin: const EdgeInsets.all(4),
+                        padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                             color: Colors.black26,
                             borderRadius: BorderRadius.circular(16)),
@@ -141,12 +141,12 @@ class _SebhaPageState extends State<SebhaPage> {
                             Text(
                               '${tasbehList[index].count}',
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 15, color: Colors.brown,fontWeight: FontWeight.bold),
+                              style: const TextStyle(fontSize: 15, color: Colors.brown,fontWeight: FontWeight.bold),
                             ),
                             Text(
                               tasbehList[index].title,
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 14, color: Colors.black,fontWeight: FontWeight.bold),
+                              style: const TextStyle(fontSize: 14, color: Colors.black,fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),

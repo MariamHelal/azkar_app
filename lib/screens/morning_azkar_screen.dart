@@ -16,7 +16,7 @@ class MorningAzkarPage extends StatefulWidget {
 class _MorningAzkarPageState extends State<MorningAzkarPage> {
 
   late SharedPreferences prefs;
-  late TimeOfDay _timeOfDay0=TimeOfDay(hour: 5, minute: 00);
+  late TimeOfDay _timeOfDay0=const TimeOfDay(hour: 5, minute: 00);
   bool isSwitched0=false;
   @override
   void initState() {
@@ -27,7 +27,7 @@ class _MorningAzkarPageState extends State<MorningAzkarPage> {
     prefs = await SharedPreferences.getInstance();
     setState(() {
       //for(int i=0;i<azkarScheduleList.length;i++){
-      _timeOfDay0= getTimeFromPreferences() ?? TimeOfDay(hour: 5, minute: 00);
+      _timeOfDay0= getTimeFromPreferences() ?? const TimeOfDay(hour: 5, minute: 00);
       isSwitched0 = prefs.getBool('Azkar switcher${widget.id}') ?? false;
       //}
     });
@@ -115,7 +115,7 @@ class _MorningAzkarPageState extends State<MorningAzkarPage> {
         wakeUpScreen: true,
         autoDismissible: true,
         fullScreenIntent: true,
-        duration: Duration(minutes: 1),
+        duration: const Duration(minutes: 1),
        // icon: 'assets/images/AppIcon.png'
     );
     final schedule=NotificationCalendar(
@@ -147,7 +147,7 @@ class _MorningAzkarPageState extends State<MorningAzkarPage> {
     @override
     Widget build(BuildContext context) {
       return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('assets/images/background 2.jpg'),
                 fit: BoxFit.fill
@@ -161,8 +161,8 @@ class _MorningAzkarPageState extends State<MorningAzkarPage> {
               widget.categoryName ,
             ),
             actions: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Icon(Icons.notifications_active),
               ),
               Switch.adaptive(
@@ -174,11 +174,11 @@ class _MorningAzkarPageState extends State<MorningAzkarPage> {
                       if(isSwitched0){
                         scheduleNotification();
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: Text('تم تفعيل اشعارات ${widget.categoryName}'))));
-                        print('${widget.categoryName} notifications is on');
+                        //print('${widget.categoryName} notifications is on');
                       }else{
                         cancleAzkarNotifications();
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: Text('تم الغاء تفعيل اشعارات ${widget.categoryName}'))));
-                        print('${widget.categoryName} notifications of');
+                        //print('${widget.categoryName} notifications of');
                       }
                     });
                     saveAzkarSwitcherToSharedPreferences();
@@ -191,7 +191,7 @@ class _MorningAzkarPageState extends State<MorningAzkarPage> {
             children: [
               Container(
                 // padding: EdgeInsets.all(16),
-                margin: EdgeInsets.symmetric(horizontal: 25,vertical: 5),
+                margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 5),
                 decoration:  BoxDecoration(
                   //  color: Colors.black26,
                     borderRadius: BorderRadius.circular(20)
@@ -204,25 +204,25 @@ class _MorningAzkarPageState extends State<MorningAzkarPage> {
                         _showTimePicker();
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        margin: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        margin: const EdgeInsets.symmetric(horizontal: 16),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Colors.black26
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Row(
                             children: [
                               Text( getTimeDisplayString(),
-                                  style: TextStyle( fontSize: 16)),
-                              Icon(Icons.arrow_drop_down_outlined),
+                                  style: const TextStyle( fontSize: 16)),
+                              const Icon(Icons.arrow_drop_down_outlined),
                             ],
                           ),
                         ),
                       ),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Text( 'وقت الاشعار',
                           style: TextStyle( fontSize: 20,fontWeight: FontWeight.bold)),
@@ -232,7 +232,7 @@ class _MorningAzkarPageState extends State<MorningAzkarPage> {
                 ),
 
               ),
-              Divider(
+              const Divider(
                 indent: 25,
                 endIndent: 25,
                 height: .5,
@@ -247,23 +247,23 @@ class _MorningAzkarPageState extends State<MorningAzkarPage> {
                         children: [
                           Container(
                             alignment: AlignmentDirectional.centerEnd,
-                            padding: EdgeInsets.all(16),
-                            margin: EdgeInsets.symmetric(horizontal: 25,vertical: 5),
+                            padding: const EdgeInsets.all(16),
+                            margin: const EdgeInsets.symmetric(horizontal: 25,vertical: 5),
                             decoration: BoxDecoration(
-                              color: Color(0xff9b9961) ,
+                              color: const Color(0xff9b9961) ,
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Align(
                               alignment: Alignment.centerRight,
                               child: Text(
                                 boxAzkar.get( widget.categoryName ) [index],
-                                textAlign: TextAlign.right,style: TextStyle(
+                                textAlign: TextAlign.right,style: const TextStyle(
                                 fontSize: 15,
                               ),
                               ),
                             ),
                           ),
-                          Divider(
+                          const Divider(
                             indent: 30,
                             endIndent: 30,
                             height: .5,

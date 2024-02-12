@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:azkar_muslims_app/screens/after_salah_azkar_screen.dart';
 import 'package:azkar_muslims_app/screens/eating_azkar_screen.dart';
 import 'package:azkar_muslims_app/screens/khrog_azkar_screen.dart';
@@ -7,9 +8,7 @@ import 'package:azkar_muslims_app/screens/sleeping_azkar_screen.dart';
 import 'package:azkar_muslims_app/screens/travelling_azkar_screen.dart';
 import 'package:azkar_muslims_app/screens/wakeup_azkar_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../services/azkar_notification_service.dart';
 import 'roqia_screen.dart';
 
 class AzkarCategoryPage extends StatefulWidget {
@@ -23,7 +22,6 @@ class AzkarCategoryPage extends StatefulWidget {
 class _AzkarCategoryPageState extends State<AzkarCategoryPage> {
   late SharedPreferences prefs;
   bool isAzkarSwitched=false;
- // var time = DateTime.now();
 
   @override
   void initState() {
@@ -40,10 +38,10 @@ class _AzkarCategoryPageState extends State<AzkarCategoryPage> {
   }
 
   Future<void> saveAzkarSwitcherToSharedPreferences() async {
-    // await prefs.setBool('Azan switcher', isAzanSwitched);
     await prefs.setBool('Azkar switcher', isAzkarSwitched);
 
   }
+
   @override
   Widget build(BuildContext context) {
     initializeSharedPreferences();
@@ -95,23 +93,8 @@ class CategoryWidget extends StatefulWidget {
 }
 
 class _CategoryWidgetState extends State<CategoryWidget> with TickerProviderStateMixin{
- // bool _isPlay = false;
-  late AnimationController _controller;
-  
-  @override
-  // void initState() {
-  //   _controller= AnimationController(
-  //     duration: const Duration(seconds: 1),
-  //     vsync: this,
-  //   );
-  //   super.initState();
-  // }
-  //
-  // @override
-  // void dispose() {
-  //   _controller.dispose();
-  //   super.dispose();
-  // }
+
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -119,7 +102,7 @@ class _CategoryWidgetState extends State<CategoryWidget> with TickerProviderStat
         Navigator.push(context, MaterialPageRoute(builder: (context){
           return widget.pageName;
         }));
-       // indexOfAzkar=widget.id;
+
       },
       child: Container(
         decoration: BoxDecoration(

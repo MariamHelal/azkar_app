@@ -33,7 +33,7 @@ class _QiblahPageState extends State<QiblahPage>
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/images/background 2.jpg'),
           fit: BoxFit.fill,

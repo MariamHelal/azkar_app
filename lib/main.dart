@@ -1,16 +1,11 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:azkar_muslims_app/screens/home_screen.dart';
-import 'package:azkar_muslims_app/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'services/boxes.dart';
-import 'screens/azkar_category_screen.dart';
-import 'services/azan_notification_services.dart';
-import 'services/azkar_notification_service.dart';
+import 'services/notification_services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +14,7 @@ Future<void> main() async {
       AwesomeNotifications().requestPermissionToSendNotifications();
     }
   });
-  await AzanNotificationServices.initializeNotification();
+  await NotificationServices.initializeNotification();
   //await AzkarNotificationServices.initializeNotification();
 
 
@@ -71,18 +66,18 @@ class _AzkarAppState extends State<AzkarApp> {
         builder:(context,snapshot){
           if(hasPermission){
             return AnimatedSplashScreen(
-              backgroundColor: Color(0xffF2F1EC),
+              backgroundColor: const Color(0xffF2F1EC),
               splashIconSize: 200,
-              splashTransition: SplashTransition.rotationTransition,
+              splashTransition: SplashTransition.slideTransition,
              // pageTransitionType: PageTransitionType.lefttoright,
               duration: 2000,
-                animationDuration: Duration(seconds: 2),
+                animationDuration: const Duration(seconds: 2),
                 splash: 'assets/images/AppIcon.png',
               nextScreen: HomePage(),
 
             );
           }else{
-            return Scaffold(
+            return const Scaffold(
               backgroundColor:Colors.white,
             );
           }

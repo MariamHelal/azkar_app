@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/azan_model.dart';
-import '../services/azan_notification_services.dart';
+import '../services/notification_services.dart';
 
 class AzanPage extends StatefulWidget {
   const AzanPage({Key? key}) : super(key: key);
@@ -39,7 +39,7 @@ class _AzanPageState extends State<AzanPage> {
   @override
   void initState() {
     super.initState();
-    isAzanSwitched=true;
+    isAzanSwitched = true;
     initializeSharedPreferences();
   }
 
@@ -52,8 +52,8 @@ class _AzanPageState extends State<AzanPage> {
 
   Future<void> saveAzanSwitcherToSharedPreferences() async {
     await prefs.setBool('Azan switcher', isAzanSwitched);
-
   }
+
   @override
   Widget build(BuildContext context) {
     initializeSharedPreferences();
@@ -70,38 +70,49 @@ class _AzanPageState extends State<AzanPage> {
             'مواعيد الصلاة',
           ),
           actions: [
-            Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Icon(Icons.notifications_active),
-          ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
+              child: Icon(Icons.notifications_active),
+            ),
             Switch.adaptive(
-              //activeColor: Color(0xff4b4a26),
+                //activeColor: Color(0xff4b4a26),
                 value: isAzanSwitched,
                 onChanged: (value) {
                   setState(() {
                     isAzanSwitched = value;
-                    if(isAzanSwitched){
-                      AzanNotificationServices.schedulePrayerNotifications();
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: Text('تم تفعيل اشعارات الآذان'))));
-                    }else{
-                      AzanNotificationServices.canclePrayerNotifications();
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Center(child: Text('تم الغاء تفعيل اشعارات الآذان'))));
+                    if (isAzanSwitched) {
+                      NotificationServices.schedulePrayerNotifications();
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content:
+                              Center(child: Text('تم تفعيل اشعارات الآذان'))));
+                    } else {
+                      NotificationServices.canclePrayerNotifications();
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Center(
+                              child: Text('تم الغاء تفعيل اشعارات الآذان'))));
                     }
                   });
                   saveAzanSwitcherToSharedPreferences();
                 }),
-
           ],
         ),
         body: Column(
           children: [
-            Spacer(flex: 1,),
-            Center(child: Image.asset('assets/images/praying.png',width: MediaQuery.of(context).size.width *.33,)),
-            SizedBox(height: 30,),
+            const Spacer(
+              flex: 1,
+            ),
+            Center(
+                child: Image.asset(
+              'assets/images/praying.png',
+              width: MediaQuery.of(context).size.width * .33,
+            )),
+            const SizedBox(
+              height: 30,
+            ),
             Expanded(
               flex: 5,
               child: Container(
-                margin: EdgeInsets.only(left: 20, right: 20, bottom: 70),
+                margin: const EdgeInsets.only(left: 20, right: 20, bottom: 70),
                 decoration: BoxDecoration(
                     color: Colors.black12,
                     borderRadius: BorderRadius.circular(20)),
@@ -114,7 +125,7 @@ class _AzanPageState extends State<AzanPage> {
                       minute: timesOfAzan[0].minute,
                       hour: timesOfAzan[0].hour,
                     ),
-                    Divider(
+                    const Divider(
                       height: 0.5,
                       color: Color(0xff87854f),
                       indent: 10,
@@ -126,7 +137,7 @@ class _AzanPageState extends State<AzanPage> {
                       minute: timesOfAzan[1].minute,
                       hour: timesOfAzan[1].hour,
                     ),
-                    Divider(
+                    const Divider(
                       height: 0.5,
                       color: Color(0xff87854f),
                       indent: 10,
@@ -138,7 +149,7 @@ class _AzanPageState extends State<AzanPage> {
                       minute: timesOfAzan[2].minute,
                       hour: timesOfAzan[2].hour,
                     ),
-                    Divider(
+                    const Divider(
                       height: 0.5,
                       color: Color(0xff87854f),
                       indent: 10,
@@ -150,7 +161,7 @@ class _AzanPageState extends State<AzanPage> {
                       minute: timesOfAzan[3].minute,
                       hour: timesOfAzan[3].hour,
                     ),
-                    Divider(
+                    const Divider(
                       height: 0.5,
                       color: Color(0xff87854f),
                       indent: 10,
@@ -162,7 +173,7 @@ class _AzanPageState extends State<AzanPage> {
                       minute: timesOfAzan[4].minute,
                       hour: timesOfAzan[4].hour,
                     ),
-                    Divider(
+                    const Divider(
                       height: 0.5,
                       color: Color(0xff87854f),
                       indent: 10,
@@ -174,25 +185,26 @@ class _AzanPageState extends State<AzanPage> {
                       minute: timesOfAzan[5].minute,
                       hour: timesOfAzan[5].hour,
                     ),
-                    Divider(
+                    const Divider(
                       height: 0.5,
                       color: Color(0xff87854f),
                       indent: 10,
                       endIndent: 10,
                     ),
-
-
                   ],
                 ),
               ),
             ),
-            Spacer(flex: 1,)
+            const Spacer(
+              flex: 1,
+            )
           ],
         ),
       ),
     );
   }
 }
+
 class CustomAzanTimesWidget extends StatelessWidget {
   const CustomAzanTimesWidget({
     super.key,
@@ -213,16 +225,16 @@ class CustomAzanTimesWidget extends StatelessWidget {
         children: [
           Text(
             '$hour:$minute ',
-            style: TextStyle(fontSize: 20, fontFamily: 'Tajawal'),
+            style: const TextStyle(fontSize: 20, fontFamily: 'Tajawal'),
           ),
-          Spacer(
+          const Spacer(
             flex: 1,
           ),
           Text(
             name,
-            style: TextStyle(fontSize: 20, fontFamily: 'Tajawal'),
+            style: const TextStyle(fontSize: 20, fontFamily: 'Tajawal'),
           ),
-          SizedBox(
+          const SizedBox(
             width: 25,
           ),
           Image.asset(

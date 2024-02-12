@@ -136,13 +136,10 @@ class HiveService {
 اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ. 
     ''',
     ]);
-    boxAzkar.put(
-      'أذكار الخروج',
-      [
+    boxAzkar.put('أذكار الخروج', [
         '(بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَاَ حَوْلَ وَلَا قُوَّةَ إِلاَّ بِاللَّهِ).',
         ' (اللَّهُمَّ إِنِّي أَعُوذُ بِكَ أَنْ أَضِلَّ، أَوْ أُضَلَّ، أَوْ أَزِلَّ، أَوْ أُزَلَّ، أَوْ أَظْلِمَ، أَوْ أُظْلَمَ، أَوْ أَجْهَلَ، أَوْ يُجْهَلَ عَلَيَّ).',
-      ],
-    );
+      ],);
     boxAzkar.put('أذكار بعد الصلاة', [
       '((أَسْتَغْفِرُ اللَّهَ (ثَلاَثَاً) اللَّهُمَّ أَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَالْإِكْرَامِ)).',
       '((لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ [ثلاثاً]، اللَّهُمَّ لاَ مَانِعَ لِمَا أَعْطَيْتَ، وَلاَ مُعْطِيَ لِمَا مَنَعْتَ، وَلاَ يَنْفَعُ ذَا الْجَدِّ مِنْكَ الجَدُّ)).',
@@ -242,15 +239,7 @@ class HiveService {
     ''',
     ]);
 
-    boxAzkar.put('scheduleTime0', DateTime(now.year,now.month,now.day, 7, 00),);
-    boxAzkar.put('scheduleTime1', DateTime(now.year,now.month,now.day, 7, 00),);
-    boxAzkar.put('scheduleTime2', DateTime(now.year,now.month,now.day, 7, 00),);
-    boxAzkar.put('scheduleTime3', DateTime(now.year,now.month,now.day, 7, 00),);
-    boxAzkar.put('scheduleTime4', DateTime(now.year,now.month,now.day, 7, 00),);
-    boxAzkar.put('scheduleTime5', DateTime(now.year,now.month,now.day, 7, 00),);
-    boxAzkar.put('scheduleTime6', DateTime(now.year,now.month,now.day, 7, 00),);
-    boxAzkar.put('scheduleTime7', DateTime(now.year,now.month,now.day, 7, 00),);
-    boxAzkar.put('scheduleTime8', DateTime(now.year,now.month,now.day, 7, 00),);
+
 
   }
 }
